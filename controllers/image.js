@@ -1,0 +1,32 @@
+const Clarifai = require("clarifai");
+
+// Add own API key here
+const app = new Clarifai.App({
+  apiKey: "6db23264b857473fab3557a90f455c46",
+});
+
+const handleApiCall = (req, res) => {
+  app.models
+    .predict(Clarifai.FACE_DETECT_MODEL, req.body.input)
+    .then((data) => {
+      res.json(data);
+    })
+    .catch((err) => res.status(400).json("ingen kontakt med API"));
+};
+
+const handleImage = (req, res, db) => {
+  const { id } = req.body;
+  db("users")
+    .where("id", "=", id)
+    .increment("entries", 1)
+    .returning("entries")
+    .then((entries) => {
+      res.json(entries[0]);
+    })
+    .catch((err) => res.status(400).json("kan inte hämta antal frågor"));
+};
+
+module.exports = {
+  handleImage,
+  handleApiCall,
+};
