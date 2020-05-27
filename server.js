@@ -34,7 +34,7 @@ app.use(cors());
 
 // ROOT
 app.get("/", (req, res) => {
-  res.json(database.users);
+  res.send("Nu fungerar det minsann!");
 });
 
 // /SIGNIN
