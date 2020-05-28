@@ -13,8 +13,8 @@ const db = knex({
   client: "pg",
   connection: {
     // Heroku
-    connectionString: "process.env.DATABASE_URL",
-    ssl: "true",
+    connectionString: process.env.DATABASE_URL,
+    ssl: true,
   },
 });
 
