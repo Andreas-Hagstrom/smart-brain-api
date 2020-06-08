@@ -36,7 +36,9 @@ app.get("/", (req, res) => {
 });
 
 // /SIGNIN
-app.post("/signin", signin.handleSignin(db, bcrypt));
+app.post("/signin", (req, res) => {
+  signin.handleSignin(req, res, db, bcrypt);
+});
 
 // /REGISTER
 app.post("/register", (req, res) => {
