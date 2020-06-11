@@ -12,9 +12,10 @@ const image = require("./controllers/image");
 const db = knex({
   client: "pg",
   connection: {
-    // Heroku
-    connectionString: process.env.DATABASE_URL,
-    ssl: true,
+    host: "postgresql-concave-44725",
+    user: "andreashagstrom",
+    password: "",
+    database: "smart-brain",
   },
 });
 
