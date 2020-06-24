@@ -1,3 +1,3 @@
 # Smart Brain API
 
-App for facial recognition built using REACT, bcrypt & clarifai. Deployed with Heroku  
+Backend for facial recognition app built using REACT, bcrypt & clarifai. Deployed with Heroku
